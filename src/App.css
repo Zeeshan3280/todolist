@@ -13,19 +13,18 @@ body {
   margin: 30px 35%;
   border-radius: 20px;
   padding-top: 25px;
-}
+  box-shadow: rgba(184, 184, 184, 0.1) 0px 0px 16px;}
 
 .todo-app h2 {
   color: #fff;
-  font-size: 30px;
-  font-family: montserrat;
+  font-size: 32px;
 }
 
 .input-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 80%;
   padding: 20px 0; /* Adjusted padding */
 }
 
@@ -34,6 +33,7 @@ body {
   font-size: 16px;
   border: none;
   width: 70%;
+  border-radius: 5px 0 0 5px;
 }
 
 .input:focus {
@@ -43,9 +43,9 @@ body {
 .btn {
   padding: 12px 20px;
   font-size: 16px;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 5px 5px 0;
   border: none;
-  background-color: #1289a7;
+  background-color: #263348;
   color: white;
 }
 
@@ -56,8 +56,8 @@ body {
 .list-container {
   background-color: #1c2a3a;
   border-radius: 8px;
-  width: 70%;
-  margin-top: 20px;
+  width: 80%;
+  margin-bottom: 10px;
   padding: 10px; /* Adjusted padding */
 }
 
@@ -72,20 +72,27 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #334a5e;
-  border-radius: 4px;
-}
-
-.list-item:hover {
-  background-color: #446b89;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  margin-bottom: 6px;
 }
 
 .delete-btn {
-  background-color: #e84118;
+  background-color: #263348;
   border: none;
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 4px;
   color: white;
   margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #2d4866;
+}
+
+.no-tasks-message {
+  color: #8d8c8c;
+  text-align: center;
 }

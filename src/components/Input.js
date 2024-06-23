@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 function Input() {
   const [inputValue, setInputValue] = useState('');
   const [tasks, setTasks] = useState([]);
+  const [showMessage, setShowMessage] = useState(true);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -12,6 +13,7 @@ function Input() {
     if (inputValue.trim()) {
       setTasks([...tasks, inputValue]);
       setInputValue('');
+      setShowMessage(false);
     }
   };
 
@@ -19,6 +21,15 @@ function Input() {
     const updatedTasks = [...tasks];
     updatedTasks.splice(index, 1);
     setTasks(updatedTasks);
+    if (updatedTasks.length === 0) {
+      setShowMessage(true);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleAddTask();
+    }
   };
 
   return (
@@ -30,6 +41,7 @@ function Input() {
           type="text"
           value={inputValue}
           onChange={handleInputChange}
+          onKeyDown={handleKeyPress}
           placeholder="Enter a task"
         />
         <button className="btn" onClick={handleAddTask}>
@@ -37,6 +49,9 @@ function Input() {
         </button>
       </div>
       <div className="list-container">
+        {showMessage && (
+          <p className="no-tasks-message">No tasks yet! Please add a task to get started.</p>
+        )}
         <ul className="list">
           {tasks.map((task, index) => (
             <li key={index} className="list-item">
